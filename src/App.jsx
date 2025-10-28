@@ -6,49 +6,93 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 
 const data = {
-  name: 'Your Name',
-  tagline: 'Engineer • Learner • Builder — crafting thoughtful digital experiences with a focus on simplicity, performance, and delightful interactions.',
-  bio: 'I am a curious engineer passionate about learning, personal growth, and building useful things. I enjoy working across the stack, prototyping quickly, and shipping thoughtfully designed products.',
+  name: 'Harshita Pathakamuri',
+  tagline:
+    'Full-Stack Software Engineer — building scalable microservices and polished user experiences with Node.js, TypeScript, PostgreSQL, and React.',
+  bio:
+    'High-impact Full-Stack Software Engineer with 1.5 years of professional experience in developing scalable microservices and user-facing applications. Specialized in HRMS features (Leaves, Attendance, Payroll) and modern frontend experiences. Focused on high-performance, maintainable code and scalable system architecture.',
   education: [
-    { title: 'B.S. in Computer Science', institution: 'Your University', year: '2019 – 2023' },
-    { title: 'Exchange Program (HCI)', institution: 'Partner University', year: '2022' },
+    {
+      title: 'Bachelor of Technology · Computer Science and Engineering',
+      institution: 'Rishi MS Institute of Engineering and Technology for Women',
+      year: 'Jul 2019 – Jul 2023',
+    },
   ],
   experience: [
-    { role: 'Software Engineer', company: 'Company A', period: '2023 – Present', summary: 'Building scalable services and polished UIs in a cross-functional team.' },
-    { role: 'Frontend Developer (Intern)', company: 'Startup B', period: 'Summer 2022', summary: 'Implemented design system components and performance optimizations.' },
+    {
+      role: 'Software Engineer',
+      company: 'BlueSpire Digital Private Limited · Hyderabad',
+      period: 'Oct 2024 – Present',
+      summary:
+        'Designed and implemented Leaves and Attendance microservices in an HRMS app using Node.js, TypeScript, and PostgreSQL; contributed to UI for leave requests, attendance, and payroll with React and Tailwind; involved in architecture for scalability and high availability.',
+    },
+    {
+      role: 'Software Engineer Intern',
+      company: 'IT Monks Solutions · Hyderabad',
+      period: 'Jan 2024 – Jul 2024',
+      summary:
+        'Led a visual refresh and new service pages for the organization’s website with React and Tailwind; ensured responsiveness and cross-browser compatibility; applied component-based architecture to deliver functional, aesthetic features.',
+    },
   ],
-  skills: ['React', 'TypeScript', 'Node.js', 'Python', 'FastAPI', 'MongoDB', 'Tailwind CSS', 'CI/CD', 'Communication', 'Leadership', 'Mentoring'],
+  skills: [
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Tailwind CSS',
+    'HTML/CSS',
+    'SASS/SCSS',
+    'Node.js',
+    'Express.js',
+    'REST',
+    'GraphQL',
+    'JWT',
+    'WebSockets',
+    'MongoDB',
+    'PostgreSQL',
+    'MySQL',
+    'Git',
+    'GitHub',
+    'Bitbucket',
+    'AWS Amplify',
+  ],
   socials: {
-    linkedin: 'https://www.linkedin.com/',
-    github: 'https://github.com/',
-    twitter: 'https://twitter.com/',
+    linkedin: 'https://www.linkedin.com/in/harshita-pathakamuri',
+    github: 'https://github.com/Harshi01-hp',
+    twitter: '',
+    website: 'https://harshita-pathakamuri.vercel.app',
   },
-  email: 'you@example.com',
+  email: 'harshitapathakamuri381@gmail.com',
   projects: [
     {
-      id: 'p1',
-      title: 'Interactive Portfolio',
-      description: 'A 3D-enhanced personal site showcasing projects, writing, and contact in a cohesive experience.',
-      image: 'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1200&auto=format&fit=crop',
-      tags: ['React', 'Spline', 'Tailwind'],
+      id: 'citizens-precheckup',
+      title: 'Citizens Precheckup (Client: Citizens Bank)',
+      description:
+        'Single-page appointment scheduling app built with React and TypeScript. Search/filter nearby branches and view banker availability to streamline bookings.',
+      image:
+        'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1600&auto=format&fit=crop',
+      tags: ['React', 'TypeScript', 'Tailwind CSS', 'SPA'],
       live: '#',
       github: '#',
     },
     {
-      id: 'p2',
-      title: 'API Starter Kit',
-      description: 'Production-ready backend template with auth, testing, and documentation.',
-      image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop',
-      tags: ['FastAPI', 'MongoDB', 'Docker'],
+      id: 'hrms-platform',
+      title: 'HRMS — Leaves, Attendance, Payroll',
+      description:
+        'Microservices for HRMS: backend for Timesheets and Clock-in/Clock-out in Node.js/TypeScript, schema design for Payroll in PostgreSQL, and UI for Leaves in React.',
+      image:
+        'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop',
+      tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'React'],
       live: '#',
       github: '#',
     },
     {
-      id: 'p3',
-      title: 'Realtime Collaboration Tool',
-      description: 'Lightweight, browser-based canvas with presence, chat, and sync.',
-      image: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1200&auto=format&fit=crop',
-      tags: ['WebSockets', 'CRDT', 'TypeScript'],
+      id: 'ims-website',
+      title: 'IMS Organization Website',
+      description:
+        'Implemented secure Login/Registration, designed the homepage, and built service pages (Mobile App Development, Healthcare) with React for a high-conversion UX.',
+      image:
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop',
+      tags: ['React', 'JavaScript', 'Responsive Design'],
       live: '#',
       github: '#',
     },
@@ -56,17 +100,17 @@ const data = {
   styleSuggestions: [
     {
       name: 'Minimal',
-      desc: 'Clean, spacious layouts with neutral tones and subtle accents.'
+      desc: 'Clean, spacious layouts with neutral tones and subtle accents.',
     },
     {
       name: 'Creative',
-      desc: 'Vibrant color accents, playful micro-interactions, and asymmetry.'
+      desc: 'Vibrant color accents, playful micro-interactions, and asymmetry.',
     },
     {
       name: 'Tech-oriented',
-      desc: 'Dark UI, neon accents, crisp typography, and futuristic touches.'
-    }
-  ]
+      desc: 'Dark UI, neon accents, crisp typography, and futuristic touches.',
+    },
+  ],
 };
 
 const Header = () => (
@@ -78,15 +122,21 @@ const Header = () => (
         <a href="#projects" className="hover:text-white">Projects</a>
         <a href="#contact" className="hover:text-white">Contact</a>
         <div className="ml-2 flex items-center gap-3">
-          <a href={data.socials.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-white">
-            <Github className="h-5 w-5" />
-          </a>
-          <a href={data.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-white">
-            <Linkedin className="h-5 w-5" />
-          </a>
-          <a href={data.socials.twitter} target="_blank" rel="noreferrer" aria-label="Twitter" className="hover:text-white">
-            <Twitter className="h-5 w-5" />
-          </a>
+          {data.socials.github && (
+            <a href={data.socials.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-white">
+              <Github className="h-5 w-5" />
+            </a>
+          )}
+          {data.socials.linkedin && (
+            <a href={data.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-white">
+              <Linkedin className="h-5 w-5" />
+            </a>
+          )}
+          {data.socials.twitter && (
+            <a href={data.socials.twitter} target="_blank" rel="noreferrer" aria-label="Twitter" className="hover:text-white">
+              <Twitter className="h-5 w-5" />
+            </a>
+          )}
         </div>
       </nav>
     </div>
