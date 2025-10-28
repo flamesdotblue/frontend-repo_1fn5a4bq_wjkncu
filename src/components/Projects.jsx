@@ -15,7 +15,7 @@ const ProjectCard = ({ project, index }) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       custom={index}
-      className="group rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm"
+      className="group rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/5 dark:backdrop-blur-sm"
     >
       <div className="relative aspect-video overflow-hidden">
         <img
@@ -24,14 +24,14 @@ const ProjectCard = ({ project, index }) => {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/40 to-transparent dark:from-slate-950/70" />
       </div>
       <div className="p-5">
-        <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-        <p className="mt-1 text-sm text-white/70">{project.description}</p>
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{project.title}</h3>
+        <p className="mt-1 text-sm text-slate-700 dark:text-white/70">{project.description}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {project.tags.map((t, i) => (
-            <span key={i} className="text-xs text-emerald-300/90 border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+            <span key={i} className="text-xs text-emerald-700 border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 rounded-full dark:text-emerald-300 dark:border-emerald-500/20">
               {t}
             </span>
           ))}
@@ -42,7 +42,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.live}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-emerald-300 hover:text-emerald-200"
+              className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
             >
               <ExternalLink className="h-4 w-4" /> Live
             </a>
@@ -52,7 +52,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-emerald-300 hover:text-emerald-200"
+              className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
             >
               <Github className="h-4 w-4" /> Code
             </a>
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = ({ projects }) => {
   return (
-    <section id="projects" className="relative w-full py-20 bg-gradient-to-b from-slate-900 to-slate-950 text-white">
+    <section id="projects" className="relative w-full py-20 bg-gradient-to-b from-slate-50 to-white text-slate-900 dark:from-slate-900 dark:to-slate-950 dark:text-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -76,7 +76,7 @@ const Projects = ({ projects }) => {
         >
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold">Projects</h2>
-            <p className="mt-2 text-white/70">Highlights of work across the stack, with links to explore further.</p>
+            <p className="mt-2 text-slate-700 dark:text-white/70">Highlights of work across the stack, with links to explore further.</p>
           </div>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
