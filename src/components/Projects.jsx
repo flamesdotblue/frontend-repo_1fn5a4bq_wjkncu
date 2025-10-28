@@ -1,9 +1,22 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const ProjectCard = ({ project }) => {
+const cardVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut', delay: i * 0.08 } }),
+};
+
+const ProjectCard = ({ project, index }) => {
   return (
-    <div className="group rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm">
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      custom={index}
+      className="group rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm"
+    >
       <div className="relative aspect-video overflow-hidden">
         <img
           src={project.image}
@@ -46,7 +59,7 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -54,15 +67,21 @@ const Projects = ({ projects }) => {
   return (
     <section id="projects" className="relative w-full py-20 bg-gradient-to-b from-slate-900 to-slate-950 text-white">
       <div className="container mx-auto px-6">
-        <div className="mb-10 flex items-end justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 flex items-end justify-between"
+        >
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold">Projects</h2>
             <p className="mt-2 text-white/70">Highlights of work across the stack, with links to explore further.</p>
           </div>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+          {projects.map((p, i) => (
+            <ProjectCard key={p.id} project={p} index={i} />
           ))}
         </div>
       </div>

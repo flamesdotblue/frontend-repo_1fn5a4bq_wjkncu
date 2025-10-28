@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { Linkedin, Github, Twitter, Mail, Send } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut', delay: i * 0.08 } }),
+};
 
 const Contact = ({ email, socials }) => {
   const [form, setForm] = useState({ name: '', subject: '', message: '' });
@@ -14,13 +20,26 @@ const Contact = ({ email, socials }) => {
   return (
     <section id="contact" className="relative w-full py-20 bg-gradient-to-b from-slate-950 to-slate-900 text-white">
       <div className="container mx-auto px-6">
-        <div className="mb-10">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          className="mb-10"
+        >
           <h2 className="text-2xl sm:text-3xl font-bold">Get in touch</h2>
           <p className="mt-2 text-white/70">Let's connect for opportunities, collaborations, or a friendly chat.</p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            custom={0}
+            className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+          >
             <h3 className="text-white font-semibold mb-3">Reach me on</h3>
             <div className="space-y-3">
               <a href={`mailto:${email}`} className="flex items-center gap-3 text-white/80 hover:text-white">
@@ -51,9 +70,17 @@ const Contact = ({ email, socials }) => {
                 Download Resume
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <form onSubmit={handleSubmit} className="lg:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+          <motion.form
+            onSubmit={handleSubmit}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            custom={1}
+            className="lg:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm text-white/70">Name</label>
@@ -94,7 +121,7 @@ const Contact = ({ email, socials }) => {
                 <Send className="h-4 w-4" /> Send
               </button>
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>
