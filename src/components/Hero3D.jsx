@@ -1,103 +1,84 @@
-import React from 'react';
-import Spline from '@splinetool/react-spline';
-import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import TechBackdrop from './TechBackdrop';
 
-const Hero3D = ({ name, tagline, ctaText, onCTAClick }) => {
+export default function Hero3D() {
   return (
-    <section id="home" className="relative min-h-[88vh] w-full flex items-center justify-center overflow-hidden text-slate-900 dark:text-white">
-      {/* 3D Scene */}
+    <section id="home" className="relative min-h-[92vh] w-full overflow-hidden">
+      {/* Tech-themed animated background (replaces spherical Spline) */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/0UnIIJngGgvQNHiD/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <TechBackdrop />
       </div>
 
-      {/* Soft gradient accents - non-blocking interactions */}
+      {/* Accent gradient overlays - non-blocking */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-20 -left-10 h-72 w-72 rounded-full bg-pink-500/30 blur-3xl" />
-        <div className="absolute top-24 -right-10 h-72 w-72 rounded-full bg-violet-500/30 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-60 w-60 rounded-full bg-emerald-400/25 blur-3xl" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/70 dark:from-slate-950/70 dark:via-slate-950/30 dark:to-slate-950/80" />
+        {/* Light theme subtle glows / Dark mode deeper glows */}
+        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-yellow-300/30 dark:bg-yellow-400/20 blur-3xl" />
+        <div className="absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-indigo-300/30 dark:bg-indigo-500/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white/70 to-transparent dark:from-black/60" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-28">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          {/* Asymmetric layout: title block takes more width */}
-          <div className="md:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 backdrop-blur dark:border-white/10 dark:bg-white/5"
-            >
-              <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_20px_4px_rgba(16,185,129,0.35)]" />
-              <span className="text-xs text-slate-700 dark:text-white/80">Interactive • Playful • Vibrant</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-              className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight"
-            >
-              {name}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-              className="mt-4 text-lg md:text-xl text-slate-700 dark:text-white/80 max-w-2xl"
-            >
-              {tagline}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
-              className="mt-8 flex items-center gap-4"
-            >
-              <button
-                onClick={onCTAClick}
-                className="group inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 font-medium text-white shadow-lg shadow-emerald-500/30 transition-transform will-change-transform hover:scale-[1.02] active:scale-[0.99] focus:outline-none dark:text-slate-900"
-              >
-                {ctaText}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
-
-              {/* playful micro-interaction chip */}
-              <motion.div
-                whileHover={{ rotate: -2, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="hidden sm:inline-flex items-center gap-2 rounded-full border border-pink-300/60 bg-pink-500/10 px-4 py-2 text-pink-700 dark:border-pink-300/30 dark:text-pink-300"
-              >
-                <span className="h-2 w-2 rounded-full bg-pink-500 shadow-[0_0_18px_4px_rgba(236,72,153,0.25)]" />
-                <span className="text-xs">Now with 3D arrows</span>
-              </motion.div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-24">
+        <div className="grid grid-cols-12 gap-8 items-start">
+          {/* Left: Title + CTA */}
+          <div className="col-span-12 md:col-span-7 lg:col-span-7">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/70 dark:bg-neutral-900/60 backdrop-blur px-3 py-1 text-xs font-medium text-neutral-700 dark:text-neutral-200 ring-1 ring-neutral-200/70 dark:ring-neutral-700/60">
+                <span className="h-2 w-2 rounded-full bg-yellow-400 animate-pulse" />
+                Light + Dark • System-aware theme
+              </span>
+              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
+                Harshita Pathakamuri
+              </h1>
+              <p className="mt-3 text-lg sm:text-xl text-neutral-700 dark:text-neutral-300 max-w-2xl">
+                Frontend developer crafting modern, animated experiences with a love for techy visuals, motion, and delightful micro‑interactions.
+              </p>
+              <div className="mt-8 flex items-center gap-4">
+                <motion.a
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
+                  href="#projects"
+                  className="inline-flex items-center justify-center rounded-md bg-yellow-400 text-neutral-900 font-medium px-5 py-2.5 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  View Projects
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  href="#contact"
+                  className="inline-flex items-center justify-center rounded-md border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/60 backdrop-blur px-5 py-2.5 text-neutral-800 dark:text-neutral-200"
+                >
+                  Get in Touch
+                </motion.a>
+              </div>
             </motion.div>
           </div>
 
-          {/* Asymmetric side badge stack */}
-          <div className="md:col-span-5 flex md:justify-end">
-            <div className="flex md:flex-col gap-3">
-              <motion.div whileHover={{ y: -3 }} className="rounded-xl border border-violet-300/60 bg-white/70 px-4 py-3 text-sm backdrop-blur dark:border-violet-300/20 dark:bg-white/10">
-                <span className="font-semibold text-violet-700 dark:text-violet-300">Front-end</span>
-                <p className="text-slate-700 dark:text-white/70">React • Tailwind • Framer Motion</p>
-              </motion.div>
-              <motion.div whileHover={{ y: -3 }} className="rounded-xl border border-emerald-300/60 bg-white/70 px-4 py-3 text-sm backdrop-blur dark:border-emerald-300/20 dark:bg-white/10">
-                <span className="font-semibold text-emerald-700 dark:text-emerald-300">Back-end</span>
-                <p className="text-slate-700 dark:text-white/70">Node • TypeScript • PostgreSQL</p>
-              </motion.div>
-              <motion.div whileHover={{ y: -3 }} className="rounded-xl border border-amber-300/60 bg-white/70 px-4 py-3 text-sm backdrop-blur dark:border-amber-300/20 dark:bg-white/10">
-                <span className="font-semibold text-amber-700 dark:text-amber-300">Cloud</span>
-                <p className="text-slate-700 dark:text-white/70">AWS • CI/CD • Observability</p>
-              </motion.div>
+          {/* Right: playful badges stack */}
+          <div className="col-span-12 md:col-span-5 lg:col-span-5">
+            <div className="flex flex-col gap-3 sm:gap-4 pt-6 md:pt-12">
+              {[
+                { label: 'React + Vite', color: 'bg-white/80 dark:bg-neutral-900/60 text-neutral-800 dark:text-neutral-100 ring-1 ring-neutral-200/80 dark:ring-neutral-700/60' },
+                { label: 'Tailwind CSS', color: 'bg-cyan-500/15 text-cyan-800 dark:text-cyan-100 ring-1 ring-cyan-300/30' },
+                { label: 'Framer Motion', color: 'bg-pink-500/15 text-pink-800 dark:text-pink-100 ring-1 ring-pink-300/30' },
+                { label: 'Tech Animations', color: 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-100 ring-1 ring-emerald-300/30' },
+              ].map((b, i) => (
+                <motion.div
+                  key={b.label}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 * i }}
+                  whileHover={{ x: 4 }}
+                  className={`inline-flex w-max items-center gap-2 rounded-full px-4 py-2 text-sm backdrop-blur ${b.color}`}
+                >
+                  <span className="h-2 w-2 rounded-full bg-current/70" />
+                  {b.label}
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero3D;
+}
